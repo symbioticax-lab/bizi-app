@@ -29,7 +29,7 @@ export async function SiteHeader() {
             width={96}
             height={120}
             priority
-            className="h-12 w-auto brightness-0 invert"
+            className="h-12 w-auto brightness-0 dark:invert"
           />
         </Link>
 

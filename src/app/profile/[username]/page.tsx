@@ -205,7 +205,13 @@ export default async function PublicProfilePage({
         topRight={isOwner && viewer ? (
           <div className="flex items-center gap-2">
             <HeroUploadButton userId={viewer.id} hasHero={Boolean(profile.hero_url)} />
-            <MobileMenu signedIn={true} username={profile.username} />
+            <MobileMenu
+              signedIn={true}
+              username={profile.username}
+              displayName={profile.display_name}
+              avatarUrl={profile.avatar_url}
+              tier={profile.subscription_tier ?? "free"}
+            />
           </div>
         ) : (
           <div className="flex items-center gap-1.5">

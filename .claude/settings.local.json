@@ -4,5 +4,21 @@
       "Bash(npm --version)",
       "Bash(git --version)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "$j = ($input -join '') | ConvertFrom-Json; $f = $j.tool_input.file_path; if ($f -and (Test-Path $f -PathType Leaf)) { $c = Get-Content $f -Raw -EA 0; if ($c) { $w = @(); if ($c -match 'sk-[A-Za-z0-9]{20,}') { $w += 'API key (sk- prefix)' }; if ($c -match 'PRIVATE KEY') { $w += 'private key block' }; if ($c -match '\\.innerHTML\\s*=[^=]') { $w += 'innerHTML (XSS risk)' }; if ($c -match '\\beval\\s*\\(') { $w += 'eval() call' }; if ($w.Count -gt 0) { [pscustomobject]@{systemMessage=('SECURITY: ' + ($w -join '; ') + ' detected in ' + $f)} | ConvertTo-Json -Compress } } }",
+            "timeout": 10,
+            "statusMessage": "Security scan..."
+          }
+        ]
+      }
+    ]
   }
 }

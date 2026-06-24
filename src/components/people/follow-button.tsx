@@ -72,8 +72,8 @@ export function FollowButton({
               "hover:border-teal-500/55 hover:bg-teal-500/20 hover:text-teal-300",
             ]
           : [
-              "border border-white/[0.07] bg-white/[0.05] backdrop-blur-sm text-white/55",
-              "hover:border-white/[0.14] hover:bg-white/[0.10] hover:text-white/85",
+              "border border-border dark:border-white/[0.07] bg-secondary/50 dark:bg-white/[0.05] backdrop-blur-sm text-foreground/70 dark:text-white/55",
+              "hover:border-border/80 dark:hover:border-white/[0.14] hover:bg-secondary dark:hover:bg-white/[0.10] hover:text-foreground dark:hover:text-white/85",
             ],
       )}
     >

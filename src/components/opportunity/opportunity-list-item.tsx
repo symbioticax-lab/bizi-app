@@ -63,10 +63,10 @@ function getCategoryMeta(cat: string) {
 
 const INTENT_META: Record<string, { label: string; badge: string }> = {
   "need-help":        { label: "SEEKING",      badge: "border-primary/25 bg-primary/10 text-primary" },
-  "offer-services":   { label: "OFFERING",     badge: "border-emerald-500/25 bg-emerald-500/10 text-emerald-400" },
-  "trade-skills":     { label: "TRADING",      badge: "border-amber-500/25 bg-amber-500/10 text-amber-400" },
-  "post-opportunity": { label: "OPPORTUNITY",  badge: "border-rose-500/25 bg-rose-500/10 text-rose-400" },
-  "share-resources":  { label: "SHARING",      badge: "border-blue-500/25 bg-blue-500/10 text-blue-400" },
+  "offer-services":   { label: "OFFERING",     badge: "border-emerald-500/25 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" },
+  "trade-skills":     { label: "TRADING",      badge: "border-amber-500/25 bg-amber-500/10 text-amber-700 dark:text-amber-400" },
+  "post-opportunity": { label: "OPPORTUNITY",  badge: "border-rose-500/25 bg-rose-500/10 text-rose-600 dark:text-rose-400" },
+  "share-resources":  { label: "SHARING",      badge: "border-blue-500/25 bg-blue-500/10 text-blue-600 dark:text-blue-400" },
 };
 
 function getIntentMeta(intent: string | null | undefined) {
@@ -134,8 +134,11 @@ export function OpportunityListItem({
     <div
       className={cn(
         "flex min-h-[210px] overflow-hidden rounded-2xl",
-        "border border-white/[0.07] bg-[hsl(248,22%,9%)]",
-        "shadow-[0_2px_20px_-6px_rgb(0_0_0/0.6)]",
+        // Light: soft violet gradient; Dark: original dark card
+        "border border-primary/15 dark:border-white/[0.07]",
+        "bg-gradient-to-br from-violet-50 via-purple-50/80 to-violet-100",
+        "dark:from-[hsl(248,22%,9%)] dark:via-[hsl(248,22%,9%)] dark:to-[hsl(248,22%,9%)]",
+        "shadow-[0_2px_14px_-4px_rgba(109,40,217,0.10)] dark:shadow-[0_2px_20px_-6px_rgb(0_0_0/0.6)]",
       )}
     >
       {/* ── Left: image inset with 7px margin on all sides ─────────────── */}
@@ -187,13 +190,13 @@ export function OpportunityListItem({
               {intentMeta.label}
             </span>
           )}
-          <p className="text-[10px] font-medium tracking-wide text-white/25">
+          <p className="text-[10px] font-medium tracking-wide text-foreground/40 dark:text-white/25">
             {categoryLabel}
           </p>
         </div>
 
         {/* Title */}
-        <h3 className="line-clamp-2 text-[15px] font-bold leading-[1.3] text-white">
+        <h3 className="line-clamp-2 text-[15px] font-bold leading-[1.3] text-foreground dark:text-white">
           {opportunity.title}
           {openExchange && (
             <span className="ml-1.5 inline-flex translate-y-[-1px] items-center rounded-full border border-primary/40 bg-primary/20 px-2 py-px text-[10px] font-bold text-primary">
@@ -206,11 +209,11 @@ export function OpportunityListItem({
         {!openExchange && exchangeValue && (
           <div className="text-[12.5px] leading-snug">
             {paid ? (
-              <span className="font-bold text-emerald-400">{formatBudget(exchangeValue)}</span>
+              <span className="font-bold text-emerald-600 dark:text-emerald-400">{formatBudget(exchangeValue)}</span>
             ) : (
               <p>
-                <span className="text-white/30">wants </span>
-                <span className="font-medium text-white/70">{exchangeValue}</span>
+                <span className="text-foreground/45 dark:text-white/30">wants </span>
+                <span className="font-medium text-foreground/80 dark:text-white/70">{exchangeValue}</span>
               </p>
             )}
           </div>
@@ -222,13 +225,13 @@ export function OpportunityListItem({
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-md border border-white/10 bg-white/[0.05] px-2 py-0.5 text-[11px] font-medium text-white/65"
+                className="rounded-md border border-primary/20 bg-primary/[0.07] px-2 py-0.5 text-[11px] font-medium text-foreground/65 dark:border-white/10 dark:bg-white/[0.05] dark:text-white/65"
               >
                 {tag}
               </span>
             ))}
             {extraTags > 0 && (
-              <span className="rounded-md border border-white/10 bg-white/[0.05] px-2 py-0.5 text-[11px] font-medium text-white/40">
+              <span className="rounded-md border border-primary/20 bg-primary/[0.07] px-2 py-0.5 text-[11px] font-medium text-foreground/45 dark:border-white/10 dark:bg-white/[0.05] dark:text-white/40">
                 +{extraTags}
               </span>
             )}
@@ -239,7 +242,7 @@ export function OpportunityListItem({
         <div className="flex-1" />
 
         {/* Meta: location · time posted · bookmark */}
-        <div className="flex items-center gap-2.5 text-[11px] text-white/40">
+        <div className="flex items-center gap-2.5 text-[11px] text-foreground/50 dark:text-white/40">
           {(locationDisplay || distance) && (
             <span className="flex min-w-0 items-center gap-1">
               <MapPin className="size-3 shrink-0" />
@@ -256,7 +259,7 @@ export function OpportunityListItem({
             itemType="listing"
             itemId={opportunity.id}
             variant="icon"
-            className="ml-auto size-7 text-white/35 hover:text-white/70 [&_svg]:size-4"
+            className="ml-auto size-7 text-foreground/40 hover:text-foreground dark:text-white/35 dark:hover:text-white/70 [&_svg]:size-4"
           />
         </div>
 

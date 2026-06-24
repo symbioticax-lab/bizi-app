@@ -79,7 +79,7 @@ export function ConnectButton({
     return (
       <div
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-        className="flex items-center justify-center gap-[5px] rounded-[10px] border border-white/[0.05] bg-white/[0.03] py-[7px] text-[11.5px] font-medium leading-none text-white/30"
+        className="flex items-center justify-center gap-[5px] rounded-[10px] border border-border/40 dark:border-white/[0.05] bg-secondary/30 dark:bg-white/[0.03] py-[7px] text-[11.5px] font-medium leading-none text-muted-foreground dark:text-white/30"
       >
         <Clock className="size-[11px]" />
         Pending
@@ -104,15 +104,15 @@ export function ConnectButton({
                 "hover:bg-primary/90 hover:shadow-[0_0_18px_-4px_hsl(var(--primary)/0.65)]",
               ]
             : [
-                "border border-white/[0.07] bg-white/[0.05] backdrop-blur-sm text-white/55",
-                "hover:border-white/[0.14] hover:bg-white/[0.10] hover:text-white/85",
+                "border border-border dark:border-white/[0.07] bg-secondary/50 dark:bg-white/[0.05] backdrop-blur-sm text-foreground/70 dark:text-white/55",
+                "hover:border-border/80 dark:hover:border-white/[0.14] hover:bg-secondary dark:hover:bg-white/[0.10] hover:text-foreground dark:hover:text-white/85",
               ],
         )}
       >
         Connect
         <Plus className={cn(
           "size-[11px] transition-colors duration-[220ms]",
-          variant === "solid" ? "text-primary-foreground/70" : "text-white/40",
+          variant === "solid" ? "text-primary-foreground/70" : "text-muted-foreground/50 dark:text-white/40",
         )} />
       </button>
 
@@ -147,8 +147,8 @@ export function ConnectButton({
               autoFocus
               placeholder={`Hey ${displayName}, I'd love to connect…`}
               className={cn(
-                "w-full resize-none rounded-xl border border-white/[0.09] bg-white/[0.04]",
-                "px-4 py-3 text-sm text-white/90 placeholder:text-white/25",
+                "w-full resize-none rounded-xl border border-border dark:border-white/[0.09] bg-background dark:bg-white/[0.04]",
+                "px-4 py-3 text-sm text-foreground dark:text-white/90 placeholder:text-muted-foreground dark:placeholder:text-white/25",
                 "focus:border-primary/50 focus:outline-none focus:ring-1 focus:ring-primary/20",
               )}
             />

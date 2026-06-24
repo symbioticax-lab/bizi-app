@@ -41,7 +41,7 @@ export function DiscoverTabs() {
                 "flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-all",
                 isActive
                   ? "bg-primary/15 text-primary"
-                  : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground",
+                  : "text-muted-foreground hover:bg-secondary/60 dark:hover:bg-white/[0.04] hover:text-foreground",
               )}
             >
               <Icon className="size-4" />

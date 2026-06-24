@@ -3,9 +3,39 @@
 @tailwind utilities;
 
 @layer base {
+  /* Light palette (default :root). A clean neutral surface with the same
+     violet brand accent. Dark mode below overrides these via the `.dark`
+     class that next-themes toggles on <html>. */
   :root {
-    /* Deep-space tinted surface palette — keeps every chrome element in
-       the same hue family as the gradient backdrop so they harmonize. */
+    --background: 0 0% 100%;
+    --foreground: 248 35% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 248 35% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 248 35% 8%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 248 20% 95%;
+    --secondary-foreground: 248 35% 12%;
+    --muted: 248 20% 96%;
+    --muted-foreground: 245 12% 40%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 248 18% 90%;
+    --input: 248 18% 92%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    --status-online: 143 71% 40%;
+    --status-new: 25 95% 50%;
+    --status-gold: 45 93% 45%;
+    --status-trending: 262 83% 58%;
+  }
+
+  /* Deep-space tinted surface palette — keeps every chrome element in
+     the same hue family as the gradient backdrop so they harmonize. */
+  .dark {
     --background: 248 35% 6%;
     --foreground: 0 0% 98%;
     --card: 248 22% 10%;
@@ -25,7 +55,6 @@
     --border: 248 18% 18%;
     --input: 248 18% 14%;
     --ring: 262 83% 58%;
-    --radius: 0.75rem;
     --status-online: 143 71% 45%;
     --status-new: 25 95% 53%;
     --status-gold: 45 93% 47%;
@@ -44,6 +73,13 @@
   body {
     @apply text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    color-scheme: light;
+    /* Light mode: clean neutral surface. The dark nebula below is scoped to
+       `.dark` so light mode reads as a flat light background. */
+    background-color: hsl(var(--background));
+  }
+
+  .dark body {
     color-scheme: dark;
     /* Solid base colour — the gradient lives on ::before so we avoid
        background-attachment:fixed, which breaks position:fixed in Safari/WebKit. */
@@ -52,8 +88,9 @@
 
   /* Layered nebulae anchored to the viewport via position:fixed on a pseudo-
      element. Visually identical to background-attachment:fixed but without the
-     WebKit compositing bug that causes fixed-positioned children to scroll. */
-  body::before {
+     WebKit compositing bug that causes fixed-positioned children to scroll.
+     Dark-mode only — light mode keeps the flat background above. */
+  .dark body::before {
     content: '';
     position: fixed;
     inset: 0;
@@ -79,10 +116,15 @@
      space gradient bleed through. The inset highlight + soft drop shadow give
      the panel its sense of depth. */
   .glass {
-    background-color: hsl(var(--card) / 0.4);
-    border-color: rgb(255 255 255 / 0.08);
+    background-color: hsl(var(--card) / 0.85);
+    border-color: hsl(var(--border));
     backdrop-filter: blur(24px) saturate(150%);
     -webkit-backdrop-filter: blur(24px) saturate(150%);
+    box-shadow: 0 8px 32px -10px rgb(0 0 0 / 0.12);
+  }
+  .dark .glass {
+    background-color: hsl(var(--card) / 0.4);
+    border-color: rgb(255 255 255 / 0.08);
     box-shadow:
       inset 0 1px 0 0 rgb(255 255 255 / 0.06),
       0 8px 32px -10px rgb(0 0 0 / 0.5);
@@ -91,10 +133,14 @@
   /* Lighter glass — for nested or smaller surfaces where the full effect
      would be too heavy (no drop shadow, lighter fill). */
   .glass-subtle {
-    background-color: hsl(var(--card) / 0.3);
-    border-color: rgb(255 255 255 / 0.06);
+    background-color: hsl(var(--card) / 0.7);
+    border-color: hsl(var(--border));
     backdrop-filter: blur(16px) saturate(140%);
     -webkit-backdrop-filter: blur(16px) saturate(140%);
+  }
+  .dark .glass-subtle {
+    background-color: hsl(var(--card) / 0.3);
+    border-color: rgb(255 255 255 / 0.06);
     box-shadow: inset 0 1px 0 0 rgb(255 255 255 / 0.04);
   }
 

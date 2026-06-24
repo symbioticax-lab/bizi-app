@@ -80,16 +80,18 @@ export function PersonCard({ person, viewerLat, viewerLng, hasTravelPlans, viewe
           // Layout — `isolate` scopes any child z-index to this card so nothing
           // can paint over the sticky tab/filter bars while scrolling.
           "relative isolate flex flex-col overflow-hidden rounded-2xl",
-          // Surface
-          "bg-[hsl(230,20%,8%)]",
-          "border border-white/[0.065]",
+          // Surface — theme-aware background and border
+          "bg-card dark:bg-[hsl(230,20%,8%)]",
+          "border border-border dark:border-white/[0.065]",
           // Depth: outer shadow + subtle inset highlight
-          "shadow-[0_4px_28px_-6px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.045)]",
+          "shadow-[0_2px_12px_-4px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(0,0,0,0.04)]",
+          "dark:shadow-[0_4px_28px_-6px_rgba(0,0,0,0.75),inset_0_1px_0_rgba(255,255,255,0.045)]",
           // Hover elevation
           "transition-all duration-[280ms] ease-[cubic-bezier(0.25,0.1,0.25,1)]",
           "group-hover:scale-[1.026]",
-          "group-hover:shadow-[0_18px_56px_-10px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.07)]",
-          "group-hover:border-white/[0.105]",
+          "group-hover:shadow-[0_6px_24px_-6px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(0,0,0,0.06)]",
+          "dark:group-hover:shadow-[0_18px_56px_-10px_rgba(0,0,0,0.85),inset_0_1px_0_rgba(255,255,255,0.07)]",
+          "group-hover:border-border/80 dark:group-hover:border-white/[0.105]",
         )}
       >
         {/* ── Inset image — px-1.5 pt-1.5 creates 6px gap on top/sides ─── */}
@@ -133,7 +135,7 @@ export function PersonCard({ person, viewerLat, viewerLng, hasTravelPlans, viewe
             )}
 
             {/* Depth gradient at bottom of image — bleeds into card body */}
-            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[hsl(230,20%,8%)] via-[hsl(230,20%,8%)/30%] to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-card dark:from-[hsl(230,20%,8%)] dark:via-[hsl(230,20%,8%)/30%] to-transparent" />
           </div>
         </div>
 
@@ -145,7 +147,7 @@ export function PersonCard({ person, viewerLat, viewerLng, hasTravelPlans, viewe
             <div className="flex min-w-0 items-center gap-[5px]">
               <h3 className={cn(
                 "truncate leading-[1.2] tracking-[-0.015em]",
-                "text-[13px] font-semibold text-white/95",
+                "text-[13px] font-semibold text-foreground dark:text-white/95",
                 "sm:text-[13.5px]",
               )}>
                 {person.display_name}
@@ -155,7 +157,7 @@ export function PersonCard({ person, viewerLat, viewerLng, hasTravelPlans, viewe
               )}
             </div>
             {role && (
-              <p className="mt-[3px] truncate text-[11px] leading-none text-white/38">
+              <p className="mt-[3px] truncate text-[11px] leading-none text-muted-foreground dark:text-white/38">
                 {role}
               </p>
             )}
@@ -164,19 +166,19 @@ export function PersonCard({ person, viewerLat, viewerLng, hasTravelPlans, viewe
           {/* Presence — accurate dot + bucketed "last seen" label, live-updating */}
           <LiveStatus
             lastSeenAt={person.last_seen_at ?? null}
-            className="text-[10.5px] leading-none text-white/40"
+            className="text-[10.5px] leading-none text-muted-foreground dark:text-white/40"
           />
 
           {/* Location / distance */}
           {locationDisplay && (
-            <div className="flex items-center gap-[4px] text-[11px] text-white/35">
+            <div className="flex items-center gap-[4px] text-[11px] text-muted-foreground dark:text-white/35">
               <MapPin className="size-[11px] shrink-0" />
               <span className="truncate">{locationDisplay}</span>
             </div>
           )}
 
           {/* Stats row */}
-          <div className="flex items-center gap-[10px] text-[10.5px] text-white/32">
+          <div className="flex items-center gap-[10px] text-[10.5px] text-muted-foreground dark:text-white/32">
             <span className="flex items-center gap-[4px]">
               <Users className="size-[11px] shrink-0" />
               <span className="tabular-nums">{person.review_count ?? 0}</span>
@@ -207,14 +209,14 @@ export function PersonCard({ person, viewerLat, viewerLng, hasTravelPlans, viewe
               className={cn(
                 "flex items-center justify-center gap-[5px]",
                 "rounded-[10px] py-[7px]",
-                "bg-white/[0.05] border border-white/[0.07] backdrop-blur-sm",
-                "text-[11.5px] font-medium text-white/55 leading-none tracking-[0.005em]",
+                "bg-secondary dark:bg-white/[0.05] border border-border dark:border-white/[0.07] backdrop-blur-sm",
+                "text-[11.5px] font-medium text-muted-foreground dark:text-white/55 leading-none tracking-[0.005em]",
                 "transition-all duration-[220ms]",
-                "group-hover:bg-white/[0.10] group-hover:border-white/[0.14] group-hover:text-white/85",
+                "group-hover:bg-secondary/80 dark:group-hover:bg-white/[0.10] group-hover:border-border/80 dark:group-hover:border-white/[0.14] group-hover:text-foreground dark:group-hover:text-white/85",
               )}
             >
               Connect
-              <Plus className="size-[11px] text-white/40 transition-colors duration-[220ms] group-hover:text-white/70" />
+              <Plus className="size-[11px] text-muted-foreground/60 dark:text-white/40 transition-colors duration-[220ms] group-hover:text-foreground dark:group-hover:text-white/70" />
             </div>
           )}
         </div>
