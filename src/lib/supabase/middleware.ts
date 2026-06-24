@@ -5,10 +5,12 @@ import { SUPABASE_URL, SUPABASE_ANON_KEY } from "./env";
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request: { headers: request.headers } });
 
-  const supabase = createServerClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY,
-    {
+  // The entire body is guarded: middleware runs on every request, so any throw
+  // here (bad env value, client construction, auth, DB query) becomes a
+  // site-wide MIDDLEWARE_INVOCATION_FAILED 500. On any failure we fail open —
+  // let the request through; page-level auth checks still guard data.
+  try {
+    const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
       cookies: {
         get(name: string) {
           return request.cookies.get(name)?.value;
@@ -24,64 +26,58 @@ export async function updateSession(request: NextRequest) {
           response.cookies.set({ name, value: "", ...options });
         },
       },
-    },
-  );
+    });
 
-  let user = null;
-  try {
-    ({ data: { user } } = await supabase.auth.getUser());
-  } catch (err) {
-    // Don't let an auth/network hiccup 500 the entire site — treat as logged
-    // out and let the request through; page-level checks still guard data.
-    console.error("[middleware] auth.getUser failed", err);
-    return response;
-  }
+    const { data: { user } } = await supabase.auth.getUser();
 
-  const { pathname, search } = request.nextUrl;
+    const { pathname, search } = request.nextUrl;
 
-  // Public allowlist — anything outside this set requires auth.
-  // /folders/[shareSlug] stays public so unlisted folder share links work for
-  // recipients who don't have an account yet.
-  const isPublic =
-    pathname === "/login" ||
-    pathname === "/signup" ||
-    pathname.startsWith("/auth/") ||
-    pathname.startsWith("/folders/") ||
-    pathname.startsWith("/api/username-check");
+    // Public allowlist — anything outside this set requires auth.
+    // /folders/[shareSlug] stays public so unlisted folder share links work for
+    // recipients who don't have an account yet.
+    const isPublic =
+      pathname === "/login" ||
+      pathname === "/signup" ||
+      pathname.startsWith("/auth/") ||
+      pathname.startsWith("/folders/") ||
+      pathname.startsWith("/api/username-check");
 
-  if (!user && !isPublic) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/signup";
-    // Preserve the originally-requested URL (including query string) so we
-    // can route the user there after signup completes.
-    url.searchParams.set("next", pathname + (search || ""));
-    return NextResponse.redirect(url);
-  }
-
-  if (user && (pathname === "/login" || pathname === "/signup")) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
-    return NextResponse.redirect(url);
-  }
-
-  // -------------------------------------------------------------------------
-  // Onboarding gate. Once authenticated, the user must finish the onboarding
-  // flow before any other route renders. We exempt /onboarding itself plus
-  // the auth callback / logout path so the flow and sign-out remain reachable.
-  // -------------------------------------------------------------------------
-  if (user && !pathname.startsWith("/onboarding") && !pathname.startsWith("/auth/")) {
-    const { data: profile } = await supabase
-      .from("profiles")
-      .select("onboarding_completed")
-      .eq("id", user.id)
-      .maybeSingle();
-
-    if (profile && !profile.onboarding_completed) {
+    if (!user && !isPublic) {
       const url = request.nextUrl.clone();
-      url.pathname = "/onboarding";
+      url.pathname = "/signup";
+      // Preserve the originally-requested URL (including query string) so we
+      // can route the user there after signup completes.
       url.searchParams.set("next", pathname + (search || ""));
       return NextResponse.redirect(url);
     }
+
+    if (user && (pathname === "/login" || pathname === "/signup")) {
+      const url = request.nextUrl.clone();
+      url.pathname = "/dashboard";
+      return NextResponse.redirect(url);
+    }
+
+    // -----------------------------------------------------------------------
+    // Onboarding gate. Once authenticated, the user must finish the onboarding
+    // flow before any other route renders. We exempt /onboarding itself plus
+    // the auth callback / logout path so the flow and sign-out remain reachable.
+    // -----------------------------------------------------------------------
+    if (user && !pathname.startsWith("/onboarding") && !pathname.startsWith("/auth/")) {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("onboarding_completed")
+        .eq("id", user.id)
+        .maybeSingle();
+
+      if (profile && !profile.onboarding_completed) {
+        const url = request.nextUrl.clone();
+        url.pathname = "/onboarding";
+        url.searchParams.set("next", pathname + (search || ""));
+        return NextResponse.redirect(url);
+      }
+    }
+  } catch (err) {
+    console.error("[middleware] updateSession failed", err);
   }
 
   return response;
