@@ -1,50 +1,10 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
-import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis";
 
-// Only initialise when the env vars are present (skip in dev if not configured)
-const ratelimit =
-  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
-    ? new Ratelimit({
-        redis: new Redis({
-          url: process.env.UPSTASH_REDIS_REST_URL,
-          token: process.env.UPSTASH_REDIS_REST_TOKEN,
-        }),
-        limiter: Ratelimit.slidingWindow(20, "1 m"),
-        analytics: false,
-      })
-    : null;
-
-const RATE_LIMITED_PATHS = ["/login", "/signup", "/api/username-check"];
-
-function getIP(request: NextRequest): string {
-  return (
-    request.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
-    request.headers.get("x-real-ip") ??
-    "unknown"
-  );
-}
-
+// Middleware runs on the Edge runtime, where the Upstash Redis client does not
+// load reliably. Rate limiting is therefore applied at the Node.js layer — see
+// src/lib/ratelimit.ts, used by the username-check route and the auth actions.
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
-
-  if (ratelimit && RATE_LIMITED_PATHS.some((p) => pathname.startsWith(p))) {
-    try {
-      const ip = getIP(request);
-      const { success } = await ratelimit.limit(ip);
-      if (!success) {
-        return NextResponse.json(
-          { error: "Too many requests. Please slow down." },
-          { status: 429 },
-        );
-      }
-    } catch (err) {
-      // Fail open — never let a rate-limiter hiccup take down the request.
-      console.error("[ratelimit]", err);
-    }
-  }
-
   return await updateSession(request);
 }
 

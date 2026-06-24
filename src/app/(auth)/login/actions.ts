@@ -4,8 +4,19 @@ import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { headers, cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
+import { checkRateLimit } from "@/lib/ratelimit";
 
 export type AuthActionState = { error?: string } | undefined;
+
+// Per-IP brute-force guard for credential submission.
+function clientIP(): string {
+  const h = headers();
+  return (
+    h.get("x-forwarded-for")?.split(",")[0].trim() ??
+    h.get("x-real-ip") ??
+    "unknown"
+  );
+}
 
 /**
  * Resolve the site URL we should redirect through. Priority:
@@ -31,6 +42,10 @@ function safeNext(raw: unknown): string {
 }
 
 export async function loginAction(_prev: AuthActionState, formData: FormData): Promise<AuthActionState> {
+  if (!(await checkRateLimit(`login:${clientIP()}`))) {
+    return { error: "Too many attempts. Please wait a minute and try again." };
+  }
+
   const supabase = createClient();
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
@@ -64,6 +79,10 @@ export async function loginAction(_prev: AuthActionState, formData: FormData): P
 const USERNAME_RE = /^[a-z0-9_]{3,20}$/;
 
 export async function signupAction(_prev: AuthActionState, formData: FormData): Promise<AuthActionState> {
+  if (!(await checkRateLimit(`signup:${clientIP()}`))) {
+    return { error: "Too many attempts. Please wait a minute and try again." };
+  }
+
   const supabase = createClient();
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
