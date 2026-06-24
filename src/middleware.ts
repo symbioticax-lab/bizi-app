@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/lib/supabase/middleware";
 import { Ratelimit } from "@upstash/ratelimit";
-import { Redis } from "@upstash/redis/cloudflare";
+import { Redis } from "@upstash/redis";
 
 // Only initialise when the env vars are present (skip in dev if not configured)
 const ratelimit =
@@ -30,13 +30,18 @@ export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (ratelimit && RATE_LIMITED_PATHS.some((p) => pathname.startsWith(p))) {
-    const ip = getIP(request);
-    const { success } = await ratelimit.limit(ip);
-    if (!success) {
-      return NextResponse.json(
-        { error: "Too many requests. Please slow down." },
-        { status: 429 },
-      );
+    try {
+      const ip = getIP(request);
+      const { success } = await ratelimit.limit(ip);
+      if (!success) {
+        return NextResponse.json(
+          { error: "Too many requests. Please slow down." },
+          { status: 429 },
+        );
+      }
+    } catch (err) {
+      // Fail open — never let a rate-limiter hiccup take down the request.
+      console.error("[ratelimit]", err);
     }
   }
 
