@@ -1,10 +1,13 @@
 "use server";
 
+import { z } from "zod";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
 export type AvatarActionState = { error?: string; ok?: true } | undefined;
+
+const UrlSchema = z.string().url();
 
 /**
  * Persists a freshly-uploaded avatar URL on the profile row, then best-effort
@@ -15,6 +18,8 @@ export async function setAvatarAction(url: string): Promise<AvatarActionState> {
   const supabase = createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
+
+  if (!UrlSchema.safeParse(url).success) return { error: "Invalid image URL." };
 
   // Capture the existing URL so we can clean up after a successful update.
   const { data: existing } = await supabase
