@@ -1,0 +1,3 @@
+- [BIZI Supabase project](supabase_project.md) — project URL, ref, and dashboard links for the MVP
+- [BIZI Resend (transactional email)](resend.md) — sender, sandbox limits, helper location
+- [BIZI build cadence](feedback_workflow.md) — small visible chunks, action over re-planning

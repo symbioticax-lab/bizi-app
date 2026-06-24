@@ -1,0 +1,919 @@
+
+> bizi@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+  - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 4.1s
+ ✓ Compiled /src/middleware in 461ms (126 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (101kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+<w> [webpack.cache.PackFileCacheStrategy] Serializing big strings (231kiB) impacts deserialization performance (consider using Buffer instead and decode when needed)
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 8.7s (1142 modules)
+ GET /signup 200 in 9335ms
+ ○ Compiling /login ...
+ ✓ Compiled /login in 5s (1146 modules)
+ GET /login 200 in 5165ms
+ ○ Compiling /profile/[username] ...
+ ✓ Compiled /profile/[username] in 2.7s (1361 modules)
+ GET /profile/pauliritani 200 in 5273ms
+ ○ Compiling / ...
+ ✓ Compiled / in 544ms (1392 modules)
+ ○ Compiling /people ...
+ ✓ Compiled /people in 550ms (1409 modules)
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 1662ms (1398 modules)
+ ○ Compiling /taps ...
+ ✓ Compiled /taps in 543ms (1403 modules)
+ ✓ Compiled /signup in 407ms (872 modules)
+ GET /signup?next=%2Fprofile%2Firitaniselect 200 in 620ms
+ ⚠ Cross origin request detected from pulp-tackiness-endowment.ngrok-free.dev to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ○ Compiling /login ...
+ ✓ Compiled /login in 541ms (881 modules)
+ ○ Compiling /onboarding ...
+ ✓ Compiled /onboarding in 1603ms (1410 modules)
+ POST /login?next=%2Fprofile%2Firitaniselect 303 in 4042ms
+ POST /onboarding?step=2 303 in 1157ms
+ POST /onboarding?step=3 303 in 1028ms
+ POST /onboarding?step=4 303 in 960ms
+ POST /onboarding?step=5 303 in 898ms
+ POST /onboarding?step=6 303 in 962ms
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 1774ms (1401 modules)
+ POST /onboarding?step=10 303 in 3515ms
+ ✓ Compiled /profile/[username] in 353ms (911 modules)
+ POST /profile/mimionmondays 200 in 1043ms
+ ○ Compiling /people ...
+ ✓ Compiled /people in 1070ms (915 modules)
+ POST /people 200 in 1278ms
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 734ms (911 modules)
+ ○ Compiling /taps ...
+ ✓ Compiled /taps in 1101ms (861 modules)
+ ○ Compiling /negotiations ...
+ ✓ Compiled /negotiations in 1836ms (1435 modules)
+ ○ Compiling /opportunities/new ...
+ ✓ Compiled /opportunities/new in 2.3s (1390 modules)
+ ○ Compiling /opportunities/[id] ...
+ ✓ Compiled /opportunities/[id] in 5.6s (1478 modules)
+ POST /opportunities/new 303 in 9130ms
+[email] Resend rejected: You can only send testing emails to your own email address (symbioticax@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+ POST /opportunities/e83f0c76-4c5a-4a38-a63e-06fd78bbaf58 200 in 2063ms
+ POST / 200 in 1222ms
+ ○ Compiling /views ...
+ ✓ Compiled /views in 1153ms (1482 modules)
+ POST /notifications 303 in 1355ms
+ ○ Compiling /interests/[id]/propose ...
+ ✓ Compiled /interests/[id]/propose in 1951ms (1527 modules)
+[email] Resend rejected: You can only send testing emails to your own email address (symbioticax@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+ ○ Compiling /negotiations/[id] ...
+ ✓ Compiled /negotiations/[id] in 2s (1565 modules)
+ POST /interests/e931ea0b-833e-4d88-b58e-c44c78059fe8/propose 303 in 5247ms
+ ○ Compiling /people ...
+ ✓ Compiled /people in 1146ms (888 modules)
+ GET /people 200 in 1417ms
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 551ms (888 modules)
+ ✓ Compiled /taps in 354ms (893 modules)
+ ✓ Compiled /views in 480ms (876 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 532ms (866 modules)
+ ○ Compiling /negotiations ...
+ ✓ Compiled /negotiations in 650ms (873 modules)
+ ○ Compiling /messages ...
+ ✓ Compiled /messages in 1055ms (1494 modules)
+ ○ Compiling /negotiations/[id] ...
+ ✓ Compiled /negotiations/[id] in 835ms (913 modules)
+[email] Resend rejected: You can only send testing emails to your own email address (symbioticax@gmail.com). To send emails to other recipients, please verify a domain at resend.com/domains, and change the `from` address to an email using this domain.
+ ○ Compiling /trades/[id] ...
+ ✓ Compiled /trades/[id] in 1518ms (1537 modules)
+ POST /negotiations/ceec0f01-cd23-4a75-ba41-e2ebf191a64d 303 in 4774ms
+ POST /negotiations/ceec0f01-cd23-4a75-ba41-e2ebf191a64d 303 in 1247ms
+ ○ Compiling /profile/[username] ...
+ ✓ Compiled /profile/[username] in 588ms (976 modules)
+ ○ Compiling /signup ...
+ ✓ Compiled /signup in 3.1s (953 modules)
+ GET /signup?next=%2Fprofile%2Firitaniselect 200 in 3606ms
+ POST / 303 in 861ms
+ GET /profile/iritaniselect 200 in 4913ms
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 880ms (954 modules)
+ ✓ Compiled /taps in 501ms (959 modules)
+ ○ Compiling /negotiations ...
+ ✓ Compiled /negotiations in 893ms (874 modules)
+ ○ Compiling /trades ...
+ ✓ Compiled /trades in 3.1s (1416 modules)
+ ○ Compiling /saved ...
+ ✓ Compiled /saved in 3.1s (1429 modules)
+ ○ Compiling /rewards ...
+ ✓ Compiled /dashboard in 3.3s (1490 modules)
+ ○ Compiling /profile/[username] ...
+ ✓ Compiled /profile/[username] in 1935ms (930 modules)
+ GET /profile/iritaniselect 200 in 1645ms
+ POST /profile/siobhannaughton97 303 in 742ms
+ ○ Compiling /onboarding ...
+ ✓ Compiled /onboarding in 1946ms (909 modules)
+ POST /signup 303 in 4421ms
+ POST /onboarding?step=2 303 in 1094ms
+ POST /onboarding?step=3 303 in 1046ms
+ POST /onboarding?step=4 303 in 1353ms
+ POST /onboarding?step=5 303 in 1212ms
+ POST /onboarding?step=6 303 in 951ms
+ POST /onboarding?step=10 303 in 1618ms
+ ○ Compiling /messages ...
+ ✓ Compiled /messages in 1632ms (914 modules)
+ ○ Compiling /people ...
+ ✓ Compiled /people in 1342ms (910 modules)
+ ○ Compiling /trades ...
+ ✓ Compiled /trades in 1251ms (913 modules)
+ ○ Compiling /saved ...
+ ✓ Compiled /saved in 3s (930 modules)
+ ○ Compiling /rewards ...
+ ✓ Compiled /dashboard in 6.2s (958 modules)
+ ✓ Compiled (965 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 1389ms (975 modules)
+ ○ Compiling /login ...
+ ✓ Compiled /login in 2.7s (897 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 546ms (907 modules)
+ ✓ Compiled /login in 390ms (897 modules)
+ ○ Compiling /dashboard ...
+ ✓ Compiled /dashboard in 571ms (904 modules)
+ POST /login?next=%2Fdashboard 303 in 3529ms
+ ✓ Compiled / in 228ms (923 modules)
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 791ms (933 modules)
+ ○ Compiling /opportunities/[id] ...
+ ✓ Compiled /opportunities/[id] in 2.1s (978 modules)
+ ○ Compiling /people ...
+ ✓ Compiled /people in 1194ms (981 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 540ms (920 modules)
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 609ms (931 modules)
+ ✓ Compiled in 2.9s (1553 modules)
+ ✓ Compiled in 1961ms (1553 modules)
+ ✓ Compiled in 1451ms (1553 modules)
+ ✓ Compiled in 1690ms (1553 modules)
+ ✓ Compiled in 958ms (635 modules)
+ ✓ Compiled in 832ms (635 modules)
+ ✓ Compiled in 3s (1526 modules)
+ ✓ Compiled in 1525ms (1527 modules)
+ ✓ Compiled in 458ms (636 modules)
+ ✓ Compiled in 1162ms (636 modules)
+ ✓ Compiled in 401ms (636 modules)
+ ✓ Compiled in 345ms (636 modules)
+ ✓ Compiled in 417ms (636 modules)
+ ✓ Compiled in 517ms (636 modules)
+ ✓ Compiled in 442ms (636 modules)
+ ✓ Compiled in 2.8s (1530 modules)
+ ✓ Compiled in 548ms (636 modules)
+ ✓ Compiled in 511ms (636 modules)
+ ✓ Compiled in 546ms (636 modules)
+ ✓ Compiled in 333ms (636 modules)
+ ✓ Compiled in 328ms (636 modules)
+ ✓ Compiled in 384ms (636 modules)
+ ✓ Compiled in 449ms (636 modules)
+ ○ Compiling / ...
+ ✓ Compiled / in 2.1s (1533 modules)
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 2278ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 2.8s (1454 modules)
+ GET / 200 in 1482ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 1020ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 846ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 768ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 697ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 561ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 620ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 613ms
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ ⨯ Error: Event handlers cannot be passed to Client Component props.
+  <button aria-label=... className=... onClick={function onClick} children=...>
+                                               ^^^^^^^^^^^^^^^^^^
+If you need interactivity, consider converting part of this to a Client Component.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>)
+digest: "2933503888"
+ GET / 500 in 780ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 5.2s (1468 modules)
+ GET / 200 in 3308ms
+ GET / 200 in 1771ms
+ ✓ Compiled in 4.4s (1453 modules)
+ GET / 200 in 805ms
+ ○ Compiling /profile/edit ...
+ ✓ Compiled /profile/edit in 2.6s (1469 modules)
+ ○ Compiling /profile/[username] ...
+ ✓ Compiled /profile/[username] in 2.8s (1544 modules)
+ ○ Compiling /notifications ...
+ ✓ Compiled /notifications in 514ms (870 modules)
+ ○ Compiling /opportunities/new ...
+ ✓ Compiled /opportunities/new in 940ms (876 modules)
+ ○ Compiling /messages ...
+ ✓ Compiled /messages in 608ms (870 modules)
+ GET / 200 in 1690ms
+ ○ Compiling /trades/[id] ...
+ ✓ Compiled /trades/[id] in 1153ms (934 modules)
+ POST /notifications 303 in 3280ms
+ ○ Compiling /messages ...
+ ✓ Compiled /messages in 545ms (870 modules)
