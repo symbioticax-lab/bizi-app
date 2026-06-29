@@ -6,8 +6,8 @@ import type { MetadataRoute } from "next";
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "BIZI — Trade skills, not money",
-    short_name: "BIZI",
+    name: "Bizi",
+    short_name: "Bizi",
     description:
       "A trust-based barter marketplace. Exchange services with people in your community.",
     start_url: "/",

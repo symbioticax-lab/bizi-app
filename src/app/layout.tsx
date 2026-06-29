@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     capable: true,
-    title: "BIZI",
+    title: "Bizi",
     statusBarStyle: "black-translucent",
   },
 };
