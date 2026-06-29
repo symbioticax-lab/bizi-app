@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { PersonCard, type Person } from "@/components/people/person-card";
 import { OpportunityListItem } from "@/components/opportunity/opportunity-list-item";
 import { LocationModule } from "@/components/feed/location-module";
+import { FeedGrid } from "@/components/feed/feed-grid";
 import type { Opportunity } from "@/lib/supabase/types";
 
 export const dynamic = "force-dynamic";
@@ -14,7 +15,6 @@ type PageSearchParams = {
   tab?: string;
   filter?: string;
   sort?: string;
-  view?: string;
 };
 
 type ListOpportunity = Pick<
@@ -72,9 +72,6 @@ export default async function FeedPage({
   const tab    = searchParams.tab === "people" ? "people" : "opportunities";
   const filter = searchParams.filter ?? (tab === "people" ? "near-you" : "nearby");
   const sort   = searchParams.sort ?? "recommended";
-  const feedClass = searchParams.view === "list"
-    ? "space-y-3"
-    : "space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0";
 
   // Fetch viewer's location + coordinates (for distance), resilient to schema lag.
   let viewerLocation: string | null = null;
@@ -229,11 +226,11 @@ export default async function FeedPage({
           <LocationModule location={viewerLocation} />
         </Suspense>
         {saved.length > 0 ? (
-          <div className={feedClass}>
+          <FeedGrid>
             {saved.map((o) => (
               <OpportunityListItem key={o.id} opportunity={o as never} viewerLat={viewerLat} viewerLng={viewerLng} />
             ))}
-          </div>
+          </FeedGrid>
         ) : (
           <div className="rounded-xl border border-dashed border-border p-10 text-center">
             <p className="text-lg font-medium">No saved listings yet</p>
@@ -291,11 +288,11 @@ export default async function FeedPage({
         <LocationModule location={viewerLocation} />
       </Suspense>
       {opportunities.length > 0 ? (
-        <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+        <FeedGrid>
           {opportunities.map((o) => (
             <OpportunityListItem key={o.id} opportunity={o as never} viewerLat={viewerLat} viewerLng={viewerLng} />
           ))}
-        </div>
+        </FeedGrid>
       ) : (
         <OpportunitiesEmpty filter={filter} />
       )}

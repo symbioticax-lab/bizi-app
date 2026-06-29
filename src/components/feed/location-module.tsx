@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { MapPin, ChevronDown, LayoutGrid, List } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { dispatchFeedView, readFeedView } from "@/components/feed/feed-grid";
 
 const SORT_OPTIONS = [
   { id: "recommended", label: "Recommended" },
@@ -51,13 +52,17 @@ export function LocationModule({ location }: Props) {
     setOpen(false);
   };
 
-  const rawView = searchParams.get("view");
-  const activeView = rawView === "list" ? "list" : "grid";
+  const [activeView, setActiveView] = useState<"grid" | "list">("grid");
+  useEffect(() => {
+    setActiveView(readFeedView());
+    const handler = (e: Event) => setActiveView((e as CustomEvent<"grid" | "list">).detail);
+    window.addEventListener("bizi-feed-view-change", handler);
+    return () => window.removeEventListener("bizi-feed-view-change", handler);
+  }, []);
 
   const setView = (v: "grid" | "list") => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("view", v);
-    router.push(`/?${params.toString()}`);
+    setActiveView(v);
+    dispatchFeedView(v);
   };
 
   const displayLocation = location
