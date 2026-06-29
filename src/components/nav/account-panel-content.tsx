@@ -5,10 +5,6 @@ import Link from "next/link";
 import {
   ChevronRight,
   ShieldCheck,
-  Handshake,
-  Bookmark,
-  Trophy,
-  LayoutDashboard,
   Pencil,
   Sparkles,
   Bell,
@@ -79,10 +75,6 @@ export function AccountPanelContent({ signedIn, username, displayName, avatarUrl
             </SheetClose>
 
             <MenuSection label="Your activity">
-              <MenuLink href="/trades" icon={Handshake} label="Trades" />
-              <MenuLink href="/saved" icon={Bookmark} label="Saved" />
-              <MenuLink href="/rewards" icon={Trophy} label="Rewards" />
-              <MenuLink href="/dashboard" icon={LayoutDashboard} label="Dashboard" />
               <MenuLink href="/profile/edit" icon={Pencil} label="Edit profile" />
             </MenuSection>
 

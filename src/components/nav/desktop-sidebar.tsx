@@ -7,6 +7,7 @@ import {
   LayoutGrid,
   Plane,
   Handshake,
+  ArrowLeftRight,
   MessageSquare,
   Bookmark,
   Trophy,
@@ -17,13 +18,9 @@ import {
   Zap,
   type LucideIcon,
 } from "lucide-react";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { cn, initials } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 type Props = {
-  username: string | null;
-  displayName: string | null;
-  avatarUrl: string | null;
   isPro: boolean;
   unreadCount: number;
   messageCount: number;
@@ -71,6 +68,12 @@ function buildSections(isPro: boolean, messageCount: number, unreadCount: number
           matchFn: (p) => p.startsWith("/negotiations"),
         },
         {
+          href: "/trades",
+          label: "Trades",
+          icon: ArrowLeftRight,
+          matchFn: (p) => p.startsWith("/trades"),
+        },
+        {
           href: "/messages",
           label: "Messages",
           icon: MessageSquare,
@@ -112,7 +115,7 @@ function buildSections(isPro: boolean, messageCount: number, unreadCount: number
   ];
 }
 
-export function DesktopSidebar({ username, displayName, avatarUrl, isPro, unreadCount, messageCount }: Props) {
+export function DesktopSidebar({ isPro, unreadCount, messageCount }: Props) {
   const [collapsed, setCollapsed] = React.useState(true);
   const pathname = usePathname();
   const sections = buildSections(isPro, messageCount, unreadCount);
@@ -224,32 +227,6 @@ export function DesktopSidebar({ username, displayName, avatarUrl, isPro, unread
         ))}
       </nav>
 
-      {/* Bottom: user profile link */}
-      {username && (
-        <div className={cn("border-t border-border/60 p-2", collapsed && "flex justify-center")}>
-          <Link
-            href={`/profile/${username}`}
-            title={collapsed ? (displayName || username) : undefined}
-            className={cn(
-              "flex items-center gap-3 rounded-lg p-2 hover:bg-secondary/60 transition-colors",
-              collapsed && "justify-center",
-            )}
-          >
-            <Avatar className="size-8 shrink-0">
-              {avatarUrl && <AvatarImage src={avatarUrl} alt="" />}
-              <AvatarFallback className="text-xs">
-                {initials(displayName ?? username ?? "U")}
-              </AvatarFallback>
-            </Avatar>
-            {!collapsed && (
-              <div className="min-w-0">
-                <p className="truncate text-sm font-medium">{displayName || username}</p>
-                <p className="truncate text-xs text-muted-foreground">@{username}</p>
-              </div>
-            )}
-          </Link>
-        </div>
-      )}
     </aside>
   );
 }

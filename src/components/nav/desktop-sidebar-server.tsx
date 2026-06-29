@@ -12,7 +12,7 @@ export async function DesktopSidebarServer() {
   const [{ data: profile }, counts] = await Promise.all([
     supabase
       .from("profiles")
-      .select("username, display_name, avatar_url, subscription_tier")
+      .select("subscription_tier")
       .eq("id", user.id)
       .maybeSingle(),
     getAlertCounts(user.id),
@@ -20,9 +20,6 @@ export async function DesktopSidebarServer() {
 
   return (
     <DesktopSidebar
-      username={profile?.username ?? null}
-      displayName={profile?.display_name ?? null}
-      avatarUrl={profile?.avatar_url ?? null}
       isPro={profile?.subscription_tier === "pro"}
       unreadCount={counts.total}
       messageCount={counts.messages}
