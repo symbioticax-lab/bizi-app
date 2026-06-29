@@ -225,7 +225,7 @@ export default async function FeedPage({
           <LocationModule location={viewerLocation} />
         </Suspense>
         {saved.length > 0 ? (
-          <div className="space-y-3">
+          <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
             {saved.map((o) => (
               <OpportunityListItem key={o.id} opportunity={o as never} viewerLat={viewerLat} viewerLng={viewerLng} />
             ))}
@@ -287,7 +287,7 @@ export default async function FeedPage({
         <LocationModule location={viewerLocation} />
       </Suspense>
       {opportunities.length > 0 ? (
-        <div className="space-y-3">
+        <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
           {opportunities.map((o) => (
             <OpportunityListItem key={o.id} opportunity={o as never} viewerLat={viewerLat} viewerLng={viewerLng} />
           ))}
