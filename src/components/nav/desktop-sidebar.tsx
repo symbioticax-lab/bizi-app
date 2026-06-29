@@ -15,6 +15,7 @@ import {
   Bell,
   ChevronRight,
   Zap,
+  type LucideIcon,
 } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { cn, initials } from "@/lib/utils";
@@ -31,7 +32,7 @@ type Props = {
 type NavItem = {
   href: string;
   label: string;
-  icon: React.ComponentType<{ className?: string; strokeWidth?: number }>;
+  icon: LucideIcon;
   matchFn: (pathname: string) => boolean;
   badgeCount?: number;
 };
