@@ -62,6 +62,12 @@ function buildSections(isPro: boolean, messageCount: number, unreadCount: number
       label: "Activity",
       items: [
         {
+          href: "/dashboard",
+          label: "Dashboard",
+          icon: LayoutDashboard,
+          matchFn: (p) => p.startsWith("/dashboard"),
+        },
+        {
           href: "/negotiations",
           label: "Matches",
           icon: Handshake,
@@ -98,10 +104,10 @@ function buildSections(isPro: boolean, messageCount: number, unreadCount: number
       label: "Account",
       items: [
         {
-          href: isPro ? "/dashboard" : "/go-pro",
-          label: isPro ? "Dashboard" : "Upgrade",
-          icon: isPro ? LayoutDashboard : Zap,
-          matchFn: (p) => p.startsWith("/dashboard") || p.startsWith("/go-pro"),
+          href: "/go-pro",
+          label: isPro ? "Manage plan" : "Upgrade",
+          icon: Zap,
+          matchFn: (p) => p.startsWith("/go-pro"),
         },
         {
           href: "/notifications",
