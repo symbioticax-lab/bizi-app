@@ -14,6 +14,7 @@ type PageSearchParams = {
   tab?: string;
   filter?: string;
   sort?: string;
+  view?: string;
 };
 
 type ListOpportunity = Pick<
@@ -71,6 +72,9 @@ export default async function FeedPage({
   const tab    = searchParams.tab === "people" ? "people" : "opportunities";
   const filter = searchParams.filter ?? (tab === "people" ? "near-you" : "nearby");
   const sort   = searchParams.sort ?? "recommended";
+  const feedClass = searchParams.view === "list"
+    ? "space-y-3"
+    : "space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0";
 
   // Fetch viewer's location + coordinates (for distance), resilient to schema lag.
   let viewerLocation: string | null = null;
@@ -225,7 +229,7 @@ export default async function FeedPage({
           <LocationModule location={viewerLocation} />
         </Suspense>
         {saved.length > 0 ? (
-          <div className="space-y-3 lg:grid lg:grid-cols-2 lg:gap-4 lg:space-y-0">
+          <div className={feedClass}>
             {saved.map((o) => (
               <OpportunityListItem key={o.id} opportunity={o as never} viewerLat={viewerLat} viewerLng={viewerLng} />
             ))}

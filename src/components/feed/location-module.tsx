@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useSearchParams, useRouter } from "next/navigation";
-import { MapPin, ChevronDown } from "lucide-react";
+import { MapPin, ChevronDown, LayoutGrid, List } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { cn } from "@/lib/utils";
 
@@ -51,6 +51,15 @@ export function LocationModule({ location }: Props) {
     setOpen(false);
   };
 
+  const rawView = searchParams.get("view");
+  const activeView = rawView === "list" ? "list" : "grid";
+
+  const setView = (v: "grid" | "list") => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("view", v);
+    router.push(`/?${params.toString()}`);
+  };
+
   const displayLocation = location
     ? location.split(",").slice(0, 2).join(",").trim()
     : "Set location";
@@ -69,46 +78,80 @@ export function LocationModule({ location }: Props) {
         </Link>
       </div>
 
-      {/* Right: sort dropdown */}
-      <div ref={dropdownRef} className="relative shrink-0">
-        <button
-          onClick={() => setOpen((prev) => !prev)}
-          className="flex items-center gap-1 text-sm text-white/60 hover:text-white/90 transition-colors"
-        >
-          <span className="text-white/50">Sort:</span>
-          <span className="font-medium text-primary">{activeLabel}</span>
-          <ChevronDown
-            className={cn("size-3.5 text-primary transition-transform duration-200", open && "rotate-180")}
-          />
-        </button>
+      {/* Right: view toggle (desktop only) + sort dropdown */}
+      <div className="flex items-center gap-3 shrink-0">
 
-        {open && (
-          <div
+        {/* Grid / List toggle — desktop only */}
+        <div className="hidden lg:flex items-center gap-0.5 rounded-lg border border-white/[0.08] bg-white/[0.04] p-0.5">
+          <button
+            onClick={() => setView("grid")}
+            aria-label="Grid view"
+            aria-pressed={activeView === "grid"}
             className={cn(
-              "absolute right-0 top-full z-50 mt-1.5 min-w-[160px] overflow-hidden",
-              "rounded-xl border border-white/[0.08] bg-popover/95 backdrop-blur-xl",
-              "shadow-[0_8px_32px_-8px_rgb(0_0_0/0.7)]",
+              "flex items-center justify-center rounded-md p-1.5 transition-colors",
+              activeView === "grid"
+                ? "bg-primary/20 text-primary"
+                : "text-muted-foreground hover:text-foreground",
             )}
           >
-            {SORT_OPTIONS.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => setSort(id)}
-                className={cn(
-                  "flex w-full items-center px-4 py-2.5 text-sm transition-colors text-left",
-                  id === activeSort
-                    ? "bg-primary/15 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground",
-                )}
-              >
-                {label}
-                {id === activeSort && (
-                  <span className="ml-auto size-1.5 rounded-full bg-primary" />
-                )}
-              </button>
-            ))}
-          </div>
-        )}
+            <LayoutGrid className="size-3.5" />
+          </button>
+          <button
+            onClick={() => setView("list")}
+            aria-label="List view"
+            aria-pressed={activeView === "list"}
+            className={cn(
+              "flex items-center justify-center rounded-md p-1.5 transition-colors",
+              activeView === "list"
+                ? "bg-primary/20 text-primary"
+                : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            <List className="size-3.5" />
+          </button>
+        </div>
+
+        {/* Sort dropdown */}
+        <div ref={dropdownRef} className="relative">
+          <button
+            onClick={() => setOpen((prev) => !prev)}
+            className="flex items-center gap-1 text-sm text-white/60 hover:text-white/90 transition-colors"
+          >
+            <span className="text-white/50">Sort:</span>
+            <span className="font-medium text-primary">{activeLabel}</span>
+            <ChevronDown
+              className={cn("size-3.5 text-primary transition-transform duration-200", open && "rotate-180")}
+            />
+          </button>
+
+          {open && (
+            <div
+              className={cn(
+                "absolute right-0 top-full z-50 mt-1.5 min-w-[160px] overflow-hidden",
+                "rounded-xl border border-white/[0.08] bg-popover/95 backdrop-blur-xl",
+                "shadow-[0_8px_32px_-8px_rgb(0_0_0/0.7)]",
+              )}
+            >
+              {SORT_OPTIONS.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => setSort(id)}
+                  className={cn(
+                    "flex w-full items-center px-4 py-2.5 text-sm transition-colors text-left",
+                    id === activeSort
+                      ? "bg-primary/15 text-primary font-medium"
+                      : "text-muted-foreground hover:bg-white/[0.04] hover:text-foreground",
+                  )}
+                >
+                  {label}
+                  {id === activeSort && (
+                    <span className="ml-auto size-1.5 rounded-full bg-primary" />
+                  )}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
