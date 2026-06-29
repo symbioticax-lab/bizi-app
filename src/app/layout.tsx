@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "BIZI — Trade skills, not money",
+  title: "Bizi",
   description: "A trust-based barter marketplace. Exchange services with people in your community.",
   applicationName: "BIZI",
   icons: {
