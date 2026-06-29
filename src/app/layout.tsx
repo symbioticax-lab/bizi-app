@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/nav/site-header";
 import { BottomNav } from "@/components/nav/bottom-nav";
 import { NavGuard } from "@/components/nav/nav-guard";
+import { DesktopSidebarServer } from "@/components/nav/desktop-sidebar-server";
 import { ToastProvider } from "@/components/ui/toast";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import { PresenceHeartbeat } from "@/components/presence/presence-heartbeat";
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="flex h-dvh flex-col overflow-hidden">
             <ToastProvider>
               <PresenceHeartbeat />
-              <NavGuard header={<SiteHeader />} bottom={<BottomNav />}>
+              <NavGuard header={<SiteHeader />} bottom={<BottomNav />} sidebar={<DesktopSidebarServer />}>
                 {children}
               </NavGuard>
             </ToastProvider>

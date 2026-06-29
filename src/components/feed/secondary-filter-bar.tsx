@@ -51,29 +51,32 @@ export function SecondaryFilterBar() {
   };
 
   return (
-    <div className="sticky top-[2.75rem] z-20 border-b border-border/30 bg-background/75 backdrop-blur-xl">
-      <div className="relative">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-background/80 to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-background/80 to-transparent z-10" />
-        <div className="no-scrollbar flex gap-2 overflow-x-auto px-4 py-2.5">
-          {filters.map(({ id, label }) => {
-            const isActive = id === activeFilter;
-            return (
-              <Link
-                key={id}
-                href={buildHref(id as AnyFilter)}
-                aria-current={isActive ? "page" : undefined}
-                className={cn(
-                  "shrink-0 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all",
-                  isActive
-                    ? "bg-primary text-primary-foreground shadow-[0_0_14px_hsl(var(--primary)/0.45)]"
-                    : "border border-white/[0.09] bg-secondary/60 text-muted-foreground hover:border-white/20 hover:text-foreground",
-                )}
-              >
-                {label}
-              </Link>
-            );
-          })}
+    <div className="border-b border-border/30 bg-background/75 backdrop-blur-xl">
+      {/* container centers pills on wide desktop screens while preserving horizontal scroll */}
+      <div className="container mx-auto">
+        <div className="relative">
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-4 bg-gradient-to-r from-background/80 to-transparent z-10" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-4 bg-gradient-to-l from-background/80 to-transparent z-10" />
+          <div className="no-scrollbar flex gap-2 overflow-x-auto px-4 py-2.5">
+            {filters.map(({ id, label }) => {
+              const isActive = id === activeFilter;
+              return (
+                <Link
+                  key={id}
+                  href={buildHref(id as AnyFilter)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={cn(
+                    "shrink-0 rounded-full px-3.5 py-1.5 text-xs font-medium transition-all",
+                    isActive
+                      ? "bg-primary text-primary-foreground shadow-[0_0_14px_hsl(var(--primary)/0.45)]"
+                      : "border border-white/[0.09] bg-secondary/60 text-muted-foreground hover:border-white/20 hover:text-foreground",
+                  )}
+                >
+                  {label}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>

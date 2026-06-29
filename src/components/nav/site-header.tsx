@@ -1,21 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Bell, MessageSquare, Plus } from "lucide-react";
+import { Bell, MessageSquare } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import { getAlertCounts } from "@/lib/alerts";
 import { Button } from "@/components/ui/button";
 import { AlertsRealtime } from "@/components/realtime/alerts-realtime";
+import { DesktopAccountPanel } from "@/components/nav/desktop-account-panel";
+import type { SubscriptionTier } from "@/lib/subscription/tiers";
 
 export async function SiteHeader() {
   const supabase = createClient();
-  const { data: { user } } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
   let unreadCount = 0;
   let messageCount = 0;
+  let profile: {
+    username: string | null;
+    display_name: string | null;
+    avatar_url: string | null;
+    subscription_tier: string | null;
+  } | null = null;
+
   if (user) {
-    const counts = await getAlertCounts(user.id);
+    const [counts, profileRes] = await Promise.all([
+      getAlertCounts(user.id),
+      supabase
+        .from("profiles")
+        .select("username, display_name, avatar_url, subscription_tier")
+        .eq("id", user.id)
+        .maybeSingle(),
+    ]);
     unreadCount = counts.total;
     messageCount = counts.messages;
+    profile = profileRes.data ?? null;
   }
 
   return (
@@ -33,31 +52,16 @@ export async function SiteHeader() {
           />
         </Link>
 
-        {/* Desktop nav links */}
-        <nav className="hidden items-center gap-6 text-sm text-muted-foreground lg:flex">
-          <Link href="/" className="hover:text-foreground">Discover</Link>
-          {user && <Link href="/negotiations" className="hover:text-foreground">Matches</Link>}
-          {user && <Link href="/messages" className="hover:text-foreground">Messages</Link>}
-          {user && <Link href="/saved" className="hover:text-foreground">Saved</Link>}
-          {user && <Link href="/rewards" className="hover:text-foreground">Rewards</Link>}
-          {user && <Link href="/dashboard" className="hover:text-foreground">Dashboard</Link>}
-        </nav>
-
         <div className="flex items-center gap-1.5">
           {user ? (
             <>
-              {/* Desktop-only Post button */}
-              <Button asChild size="sm" variant="default" className="hidden lg:inline-flex">
-                <Link href="/opportunities/new"><Plus className="size-4" /> Post</Link>
-              </Button>
-
-              {/* Messages icon — visible on mobile + desktop */}
+              {/* Messages icon — mobile only; sidebar covers desktop */}
               <Button
                 asChild
                 size="icon"
                 variant="ghost"
                 aria-label={messageCount > 0 ? `Messages (${messageCount} unread)` : "Messages"}
-                className="relative"
+                className="relative lg:hidden"
               >
                 <Link href="/messages">
                   <MessageSquare className="size-4" />
@@ -70,13 +74,13 @@ export async function SiteHeader() {
                 </Link>
               </Button>
 
-              {/* Notifications bell — visible on mobile + desktop */}
+              {/* Notifications bell — mobile only; sidebar covers desktop */}
               <Button
                 asChild
                 size="icon"
                 variant="ghost"
                 aria-label={unreadCount > 0 ? `Notifications (${unreadCount} unread)` : "Notifications"}
-                className="relative"
+                className="relative lg:hidden"
               >
                 <Link href="/notifications">
                   <Bell className="size-4" />
@@ -89,11 +93,22 @@ export async function SiteHeader() {
                 </Link>
               </Button>
 
+              {/* Desktop account panel — profile avatar triggers right-side sheet */}
+              <DesktopAccountPanel
+                username={profile?.username ?? null}
+                displayName={profile?.display_name ?? null}
+                avatarUrl={profile?.avatar_url ?? null}
+                tier={(profile?.subscription_tier as SubscriptionTier) ?? null}
+              />
             </>
           ) : (
             <>
-              <Button asChild size="sm" variant="ghost"><Link href="/login">Sign in</Link></Button>
-              <Button asChild size="sm"><Link href="/signup">Sign up</Link></Button>
+              <Button asChild size="sm" variant="ghost">
+                <Link href="/login">Sign in</Link>
+              </Button>
+              <Button asChild size="sm">
+                <Link href="/signup">Sign up</Link>
+              </Button>
             </>
           )}
         </div>

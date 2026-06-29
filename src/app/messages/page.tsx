@@ -221,11 +221,11 @@ export default async function MessagesPage() {
   const hasAnyContent = conversations.length > 0 || connections.length > 0;
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="flex w-full flex-col lg:max-w-2xl lg:mx-auto">
 
       {/* ── Hero header ─────────────────────────────────────────── */}
       <div className="px-5 pt-6 pb-7">
-        <h1 className="text-[2.6rem] font-bold leading-[1.05] tracking-tight text-white/60 mix-blend-luminosity">
+        <h1 className="text-[2.6rem] font-bold leading-[1.05] tracking-tight text-foreground/50 dark:text-white/60 dark:mix-blend-luminosity">
           Let&apos;s Stay<br />Connected
         </h1>
       </div>

@@ -32,7 +32,7 @@ export function BottomNavInner({ username, displayName, avatarUrl, isPro = false
        No position:fixed — the nav just sits at the bottom of the flex layout. */
     <nav
       aria-label="Primary"
-      className="shrink-0 px-4 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))]"
+      className="shrink-0 px-4 pt-2 pb-[max(1rem,env(safe-area-inset-bottom))] lg:hidden"
     >
       <div
         className={cn(

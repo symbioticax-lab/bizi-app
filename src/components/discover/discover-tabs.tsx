@@ -28,7 +28,7 @@ export function DiscoverTabs() {
   };
 
   return (
-    <div className="sticky top-0 z-30 border-b border-border/40 bg-background/80 backdrop-blur-xl">
+    <div className="border-b border-border/40 bg-background/80 backdrop-blur-xl">
       <div className="container flex items-center gap-1 px-4 py-2">
         {TABS.map(({ id, label, icon: Icon }) => {
           const isActive = id === activeTab;
